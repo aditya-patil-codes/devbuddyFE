@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.welcome-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff; /* Or any color you prefer */
+    display: inline-block;
+    overflow: hidden; /* Hide text initially */
+    white-space: nowrap;
+    border-right: 4px solid rgba(255, 255, 255, 0.75); /* Cursor effect */
+    animation: blink-caret 0.75s step-end infinite; /* Blinking cursor */
+  }
+  
+  /* Cursor blinking effect */
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
