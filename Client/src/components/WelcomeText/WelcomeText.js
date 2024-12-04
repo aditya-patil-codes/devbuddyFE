@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const WelcomeText = () => {
-  const text = "Hi, How can I help you today  ?";
+  const text = "Hi, How can I help you today?";
 
   // Create an array of individual characters
   const textArray = text.split("");
