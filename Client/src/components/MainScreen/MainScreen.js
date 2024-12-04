@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import LogoImage from "../../assets/team_logo.png";
+import LogoImage from "../../assets/loadinglogo.png";
 
 const MainScreen = ({ messages, loading }) => {
   const chatContainerRef = useRef(null);
@@ -28,7 +28,7 @@ const MainScreen = ({ messages, loading }) => {
             <img
               src={LogoImage}
               alt="AI Avatar"
-              className="w-8 h-8 rounded-full mr-2"
+              className="w-9 h-9 rounded-full mr-2"
             />
           )}
           <div

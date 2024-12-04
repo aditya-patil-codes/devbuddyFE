@@ -12,7 +12,7 @@ const Inputbox = ({ onSubmit, isChatStarted, loading }) => {
   };
 
   const handleSend = () => {
-    if (value.trim()) {
+    if (value.trim() && !loading) {
       onSubmit(value); // Send message to the parent
       setValue(''); // Clear the input
       if (textareaRef.current) {
@@ -22,6 +22,7 @@ const Inputbox = ({ onSubmit, isChatStarted, loading }) => {
   };
 
   const handleKeyDown = (e) => {
+    if (loading) return; // Ignore key presses when loading
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
@@ -32,18 +33,21 @@ const Inputbox = ({ onSubmit, isChatStarted, loading }) => {
     <div
       className={`flex justify-center items-center w-full max-w-3xl ${
         isChatStarted
-          ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2'
+          ? 'absolute bottom-8 left-1/2 transform -translate-x-1/2'
           : 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
       }`}
     >
       <div className="flex w-full rounded-lg border shadow-md bg-inputBg">
         <textarea
           ref={textareaRef} // Attach ref to the textarea
-          placeholder="Enter your Doubts here..."
+          placeholder="Enter your doubts here..."
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="flex-grow p-3 bold text-lg rounded focus:outline-none bg-clip-text text-transparent placeholder-textSecondary resize-none"
+          disabled={loading} // Disable input when loading
+          className={`flex-grow p-3 text-lg rounded focus:outline-none bg-clip-text text-transparent placeholder-textSecondary resize-none ${
+            loading ? 'cursor-not-allowed bg-gray-100' : ''
+          }`}
           rows="1"
           style={{
             maxHeight: '150px', // Set a max height

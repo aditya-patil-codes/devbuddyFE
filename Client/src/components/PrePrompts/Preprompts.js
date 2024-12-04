@@ -8,7 +8,7 @@ const Preprompts = ({ onSelectPrompt }) => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-4 mt-48 p-4 rounded-lg max-w-2xl mx-auto">
+    <div className="flex flex-wrap gap-4 mt-60 p-4 rounded-lg max-w-2xl mx-auto">
       {prompts.map((prompt, index) => (
         <button
           key={index}
